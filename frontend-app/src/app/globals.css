@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0b0d;
+  --color-foreground: #e5e7eb;
+  --color-sidebar: #111214;
+  --color-card: #1a1b1e;
+  --color-primary: #10b981;
+  --color-primary-hover: #059669;
+  --color-border: #2d2f34;
+  --color-input: #1f2125;
+}
+
+:root {
+  --background: #0a0b0d;
+  --foreground: #e5e7eb;
+  --sidebar: #111214;
+  --card: #1a1b1e;
+  --primary: #10b981;
+  --border: #2d2f34;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-md transition-colors font-medium flex items-center justify-center gap-2;
+  }
+  
+  .card {
+    @apply bg-card border border-border rounded-lg p-4 shadow-xl;
+  }
+  
+  .input-field {
+    @apply bg-input border border-border rounded-md px-3 py-2 text-white focus:outline-none focus:border-primary transition-colors;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 transition-all cursor-pointer border-l-4 border-transparent;
+  }
+
+  .sidebar-item-active {
+    @apply text-primary bg-primary/10 border-primary;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2d2f34;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f4147;
+}

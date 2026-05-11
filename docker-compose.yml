@@ -1,0 +1,47 @@
+services:
+  smart-camera-service:
+    build:
+      context: ./smart-camera-service
+      dockerfile: Dockerfile
+    container_name: smart-camera-service
+    ports:
+      - "8082:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - smart-camera-network
+
+  frontend-app:
+    build:
+      context: ./frontend-app
+      dockerfile: Dockerfile
+    container_name: frontend-app
+    ports:
+      - "3002:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8082
+      - BACKEND_URL=http://smart-camera-service:8080
+    depends_on:
+      smart-camera-service:
+        condition: service_healthy
+    networks:
+      - smart-camera-network
+
+  rtsp-simulator:
+    image: aler9/rtsp-simple-server
+    container_name: rtsp-simulator
+    ports:
+      - "5544:554"
+    networks:
+      - smart-camera-network
+
+networks:
+  smart-camera-network:
+    driver: bridge

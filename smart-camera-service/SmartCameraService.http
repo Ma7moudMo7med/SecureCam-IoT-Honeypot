@@ -1,0 +1,13 @@
+@SmartCameraService_HostAddress = http://localhost:5025
+
+#if (EnableOpenAPI)
+GET {{SmartCameraService_HostAddress}}/openapi/v1.json
+Accept: application/json
+
+###
+#endif
+
+GET {{SmartCameraService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
