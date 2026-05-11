@@ -32,3 +32,4 @@ D:\AlII\IOT_Simulation\Smart_Camera_Simulation\smart-camera-service\obj\Debug\ne
 D:\AlII\IOT_Simulation\Smart_Camera_Simulation\smart-camera-service\obj\Debug\net11.0\SmartCameraService.pdb
 D:\AlII\IOT_Simulation\Smart_Camera_Simulation\smart-camera-service\obj\Debug\net11.0\SmartCameraService.genruntimeconfig.cache
 D:\AlII\IOT_Simulation\Smart_Camera_Simulation\smart-camera-service\obj\Debug\net11.0\ref\SmartCameraService.dll
+D:\AlII\IOT_Simulation\Smart_Camera_Simulation\smart-camera-service\obj\Debug\net11.0\SmartCameraService.sourcelink.json
